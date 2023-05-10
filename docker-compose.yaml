@@ -12,7 +12,7 @@ services:
         - 5000
         
   nginx:
-    build: ./nginxd
+    build: ./nginx
     container_name: skhswaggernginx
     image: skhswaggernginx:1.0.0
     restart: always
