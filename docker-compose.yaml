@@ -1,0 +1,22 @@
+version: "3.7"
+ 
+services: 
+  flask:
+    build: ./flaska
+    container_name: skhswaggerflask
+    image: skhswaggerflask:0.1.0
+    restart: always
+    environment:
+      - APP_NAME=FlaskApp
+    expose:
+        - 5000
+        
+  nginx:
+    build: ./nginxd
+    container_name: skhswaggernginx
+    image: skhswaggernginx:1.0.0
+    restart: always
+    ports:
+      - "8200:8200"      
+    depends_on:
+      - flask
